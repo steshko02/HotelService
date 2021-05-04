@@ -1,11 +1,13 @@
 package controllers;
 
 import api.services.RoomService;
+import model.entity.fasility.Facility;
 import service.*;
 import model.entity.Room;
 import model.enumType.ServiceType;
 import model.enumType.StatusRoom;
 
+import java.util.Comparator;
 import java.util.List;
 
 public class RoomController {
@@ -23,8 +25,8 @@ public class RoomController {
         }
         return instance;
     }
-    public void createRoom(float price, List<ServiceType> services, StatusRoom statusRoom,
-                           boolean isBusy,int capacity,int stars) {
+    public void createRoom(float price, List<Facility> services, StatusRoom statusRoom,
+                           boolean isBusy, int capacity, int stars) {
         Room room = new Room(price, services, statusRoom, isBusy,capacity,stars);
         createRoom(room);
     }
@@ -65,26 +67,18 @@ public class RoomController {
         roomService.changePriceRoom(room,price);
     }
 
-    public void addRoomService(Room room,ServiceType type){
+    public void addRoomService(Room room,Facility type){
         roomService.addRoomService(room,type);
-    }
-
-    public void sortByPrice(List<Room> rooms) {
-        roomService.sortByPrice(rooms);
-    }
-
-    public void sortByCapacity(List<Room> rooms) {
-        roomService.sortByCapacity(rooms);
-    }
-
-    public void sortByStars(List<Room> rooms) {
-        roomService.sortByStars(rooms);
     }
 
     public List<Room> getFreeRooms(){
         return roomService.getFreeRooms();
     }
 
-
-
+    public List<Room> sortByComparator(Comparator<Room> comparator){
+        return roomService.sortByComparator(comparator);
+    }
+    public List<Room> sortByFreeRoomComparator(Comparator<Room> comparator){
+        return roomService.sortFreeRoomByComparator(comparator);
+    }
 }

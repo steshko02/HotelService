@@ -1,34 +1,36 @@
 package model.enumType;
 
 public enum ServiceType {
-    CLEANING(30f),
-    BREAKFAST(35f),
-    DINNER(45f),
-    FREE_WIFI(0f),
-    SPA(120f);
+    CLEANING,
+    BREAKFAST,
+    DINNER,
+    FREE_WIFI,
+    SPA;
 
-    float price;
-
-    public static ServiceType getByIndex(int index){ //роверка на графницы
+        public static ServiceType getByIndex(int index){
         return ServiceType.values()[index];
     }
-
-    ServiceType(float price) {
-        this.price = price;
-    }
-
-    public void setPrice(float price) {
-        this.price = price;
-    }
-
-    public float getPrice() {
-        return price;
-    }
-
-    @Override
-    public String toString() {
-        return "ServiceType{" +
-                "price=" + price +
-                "} " + super.toString();
-    }
 }
+//    float price;
+//
+
+//
+//    ServiceType(float price) {
+//        this.price = price;
+//    }
+//
+//    public void setPrice(float price) {
+//        this.price = price;
+//    }
+//
+//    public float getPrice() {
+//        return price;
+//    }
+//
+//    @Override
+//    public String toString() {
+//        return "ServiceType{" +
+//                "price=" + price +
+//                "} " + super.toString();
+//    }
+//}

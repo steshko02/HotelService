@@ -1,6 +1,7 @@
 package model.entity;
 
 import lombok.EqualsAndHashCode;
+import model.entity.fasility.Facility;
 import model.enumType.ServiceType;
 import model.enumType.StatusRoom;
 import lombok.Data;
@@ -11,14 +12,15 @@ import java.util.List;
 @Data
 public class Room extends BaseEntity {
     private float priceRoom;
-    private List<ServiceType> services;
+    private List<Facility> services;
     private StatusRoom statusRoom;
     private boolean isBusy;
     private Long id;
     private int capacity;
     private int stars;
 
-    public Room(float priceRoom, List<ServiceType> services, StatusRoom statusRoom, boolean isBusy, int capacity,int stars) {
+    public Room(float priceRoom, List<Facility> services, StatusRoom statusRoom, boolean isBusy,
+                int capacity,int stars) {
         this.priceRoom = priceRoom;
         this.services = services;
         this.statusRoom = statusRoom;

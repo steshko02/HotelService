@@ -9,6 +9,9 @@ import controllers.RoomController;
 import model.entity.Room;
 import repository.RoomRepository;
 import utils.ConsoleIn;
+
+import java.util.ArrayList;
+
 @Slf4j
 public class EvictFromRoom implements Action {
     @Override
@@ -16,10 +19,9 @@ public class EvictFromRoom implements Action {
         System.out.println("Введите номер запроса по которому хотите выселить");
         Long id = ConsoleIn.getScanner().nextLong();
 
-        RegistrationInfo registrationInfo = RegistrationController.getInstance().get(id);
-
-        Room room = RoomController.getInstance().getRoom(registrationInfo.getRoomId());
+        Room room = RoomController.getInstance().getRoom(RegistrationController.getInstance().get(id).getRoomId());
         RoomController.getInstance().evictFromRoom(room);
+        room.setServices(new ArrayList<>());
         RoomController.getInstance().update(room);
 
         RegistrationController.getInstance().delete(id);

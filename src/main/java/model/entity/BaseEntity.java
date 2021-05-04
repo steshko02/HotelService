@@ -1,7 +1,9 @@
 package model.entity;
 
-import java.util.Objects;
+import lombok.Data;
 
+import java.util.Objects;
+@Data
 public class BaseEntity {
     private Long id;
 
@@ -16,5 +18,10 @@ public class BaseEntity {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return  "id=" + id ;
     }
 }

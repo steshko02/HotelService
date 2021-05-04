@@ -1,6 +1,7 @@
 package model.entity;
 
 import lombok.EqualsAndHashCode;
+import model.entity.fasility.Facility;
 import model.enumType.ServiceType;
 
 import java.text.DateFormat;
@@ -15,14 +16,13 @@ public class RegistrationInfo extends BaseEntity {
     private Person person;
     private Calendar dataChekIn;
     private Calendar  dataChekOut;
-    private List<ServiceType> services;
+    private List<Facility> services;
     private int countPeople;
-    private Long id;  //Base
     private float fullCost;
 
 
     public RegistrationInfo(Long roomId, Person person, Calendar dataChekIn,
-                            Calendar dataChekOut, List<ServiceType> services, int countPeople, float fullCost) {
+                            Calendar dataChekOut, List<Facility> services, int countPeople, float fullCost) {
         this.roomId = roomId;
         this.person = person;
         this.dataChekIn = dataChekIn;
@@ -46,7 +46,6 @@ public class RegistrationInfo extends BaseEntity {
                 " dataChekOut=" + dateFormat.format(dataChekOut.getTime()) +"\n"+
                 " services=" + services +"\n"+
                 " countPeople=" + countPeople +"\n"+
-                " id=" + id +"\n"+
                         super.toString();
     }
 }

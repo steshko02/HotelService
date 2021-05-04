@@ -5,13 +5,13 @@ import controllers.RoomController;
 import model.entity.Room;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class SortFreeRoomsByPrice implements Action {
     @Override
     public void execute() throws Exception {
-        List<Room> freeRooms =  RoomController.getInstance().getFreeRooms();
-        RoomController.getInstance().sortByPrice(freeRooms);
-        System.out.println(freeRooms);
+        RoomController.getInstance().sortByFreeRoomComparator(Comparator
+                .comparing(Room::getPriceRoom)).forEach(System.out::println);
     }
 }

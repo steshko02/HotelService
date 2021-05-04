@@ -2,6 +2,9 @@ package api.services;
 
 import model.entity.BaseEntity;
 
+import java.util.Comparator;
+import java.util.List;
+
 public interface AbstractService <T extends BaseEntity> {
     Long create(T entity);
 
@@ -11,4 +14,7 @@ public interface AbstractService <T extends BaseEntity> {
 
     T get(Long id) throws NullPointerException;
 
+    List<T> sortByComparator(Comparator<T> comparator);
+
+    List<T> getAll();
 }

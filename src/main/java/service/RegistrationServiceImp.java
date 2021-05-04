@@ -5,7 +5,9 @@ import api.services.RegistrationService;
 import model.entity.RegistrationInfo;
 import repository.RegistrationInfoRepository;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RegistrationServiceImp implements RegistrationService {
 
@@ -35,6 +37,14 @@ public class RegistrationServiceImp implements RegistrationService {
     }
 
     @Override
+    public List<RegistrationInfo> sortByComparator(Comparator<RegistrationInfo> comparator) {
+        return registrationRepository.getAll()
+                .stream()
+                .sorted(comparator)
+                .collect(Collectors.toList());
+    }
+
+    @Override
     public void delete(Long id) {
         registrationRepository.delete(id);
     }
@@ -48,4 +58,6 @@ public class RegistrationServiceImp implements RegistrationService {
     public List<RegistrationInfo> getAll() {
        return registrationRepository.getAll();
     }
+
+
 }

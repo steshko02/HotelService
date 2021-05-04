@@ -1,14 +1,10 @@
 package actions.hotel.create;
-
 import actions.Action;
 import controllers.RoomController;
 import model.entity.Room;
-import model.enumType.ServiceType;
 import model.enumType.StatusRoom;
 import utils.ConsoleIn;
-
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class CreateNewRoom implements Action {
     @Override
@@ -31,21 +27,12 @@ public class CreateNewRoom implements Action {
 
         int tr= ConsoleIn.getScanner().nextInt();
 
-        room.setBusy(tr!=0); //сделали для примера
+        room.setBusy(tr!=0);
 
-        System.out.println("1-CLEANING" + //в форич засунуть
-                "2-BREAKFAST\n" +
-                "3-DINNER\n" +
-                "4-FREE_WIFI\n" +
-                "5-SPA\n" +
-                "Услуги номера:" );
-        room.setServices(new ArrayList<ServiceType>(){{
-                add(ServiceType.getByIndex(ConsoleIn.getScanner().nextInt()-1));
-        }});
+        room.setServices(new ArrayList<>());
 
         RoomController.getInstance().createRoom(room.getPriceRoom(),
                 room.getServices(),room.getStatusRoom(),room.isBusy(),
                 room.getCapacity(),room.getStars());
-        //RoomController.getInstance().createRoom(room);
     }
 }
