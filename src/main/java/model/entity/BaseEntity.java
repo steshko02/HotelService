@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.Objects;
 @Data
 public class BaseEntity {
-    private Long id;
+    protected Long id;
 
     @Override
     public boolean equals(Object o) {

@@ -2,9 +2,13 @@ package memoDataStorage;
 
 import model.entity.Hotel;
 import model.entity.Room;
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 
+
+@Component
 public class DataStorageRoom {
     private static Long rooms_id_sequence = 0L;
     private final static Hotel hotel = new Hotel(new ArrayList<>(20)); // обработать ощибку

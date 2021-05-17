@@ -3,6 +3,7 @@ package repository;
 import api.repositories.RegistrationRepositoryInterface;
 import memoDataStorage.DataStorageRegistrationInfo;
 import model.entity.RegistrationInfo;
+import model.entity.Room;
 
 import java.util.List;
 import java.util.Optional;

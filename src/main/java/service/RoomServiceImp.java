@@ -3,41 +3,40 @@ package service;
 import api.repositories.RoomRepositoryInterface;
 import api.services.RoomService;
 import lombok.extern.slf4j.Slf4j;
-import model.entity.RegistrationInfo;
 import model.entity.Room;
 import model.entity.fasility.Facility;
-import model.enumType.ServiceType;
 import model.enumType.StatusRoom;
 import repository.RoomRepository;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Slf4j
-public class RoomServiceImp implements RoomService {
+public class RoomServiceImp extends MainServiceMethods<Room> implements RoomService {
+
 
     private RoomRepositoryInterface roomRepository;
     private static RoomServiceImp instance;
-
     private RoomServiceImp() {
         this.roomRepository = RoomRepository.getInstance();
     }
 
     public static RoomServiceImp getInstance() {
         if (instance == null) {
+
             instance = new RoomServiceImp();
         }
         return instance;
     }
-    public Long create(Room entity) {
-        return roomRepository.create(entity);
-    }
+//    public Long create(Room entity) {
+//        return roomRepository.create(entity);
+//    }
 
-    public Room get(Long index) {
-        return roomRepository.get(index).orElseThrow(NullPointerException::new);
-    }
+//    public Room get(Long index) {
+//        return roomRepository.get(index).orElseThrow(NullPointerException::new);
+//    }
 
     @Override
     public List<Room> sortByComparator(Comparator<Room> comparator) {
@@ -57,7 +56,7 @@ public class RoomServiceImp implements RoomService {
 
     @Override
     public List<Room> getAll() {
-        return roomRepository.getAll();
+        return super.getRepository().getAll();
     }
 
     public void delete(Long id) {

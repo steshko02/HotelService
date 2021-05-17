@@ -5,12 +5,14 @@ import model.entity.RegistrationInfo;
 import model.entity.Room;
 import model.entity.fasility.Facility;
 import model.enumType.ServiceType;
+import org.springframework.beans.factory.annotation.Autowired;
 import service.RegistrationServiceImp;
 
 import javax.xml.crypto.Data;
 import java.util.Calendar;
 import java.util.Comparator;
 import java.util.List;
+
 
 public class RegistrationController {
 

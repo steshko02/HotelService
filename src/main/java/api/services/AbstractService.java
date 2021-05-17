@@ -1,11 +1,13 @@
 package api.services;
 
+import api.repositories.RoomRepositoryInterface;
 import model.entity.BaseEntity;
 
 import java.util.Comparator;
 import java.util.List;
 
 public interface AbstractService <T extends BaseEntity> {
+
     Long create(T entity);
 
     void delete(Long id) throws NullPointerException;

@@ -20,7 +20,6 @@ public class CreateNewRoom implements Action {
                 "Состояние комнаты:" );
         room.setStatusRoom(StatusRoom.getByIndex(ConsoleIn.getScanner().nextInt()-1));
 
-
         System.out.println("Заселен ли номер?" +
                 "1-да\n" +
                 "0-нет\n");

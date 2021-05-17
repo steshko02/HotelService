@@ -16,5 +16,6 @@ public class ChangePriceRoom implements Action {
         float price=ConsoleIn.getScanner().nextFloat();
         RoomController.getInstance().changePriceRoom(room,price);
         RoomRepository.getInstance().update(room);
+
     }
 }

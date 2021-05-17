@@ -15,7 +15,6 @@ public class Room extends BaseEntity {
     private List<Facility> services;
     private StatusRoom statusRoom;
     private boolean isBusy;
-    private Long id;
     private int capacity;
     private int stars;
 
