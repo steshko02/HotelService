@@ -1,10 +1,9 @@
-package by.steshko.springlessons;
+package Config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
 
 @Configuration
-@ComponentScan("by.steshko.springlessons")
+@ComponentScan("model")
 public class SpringConfig {
 }
